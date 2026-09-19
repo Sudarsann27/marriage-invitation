@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, Heart, Clock, Sparkles } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
-export default function HeroSection() {
+export default function HeroSection({ isVisible }) {
   const { couple, countdownTarget } = weddingData;
 
   const calculateTimeLeft = () => {
@@ -32,22 +32,23 @@ export default function HeroSection() {
 
   return (
     <section id="hero-invitation" className="relative pt-24 pb-16 px-4 sm:px-6 max-w-5xl mx-auto text-center">
-      
-      {/* Auspicious Invocation Header */}
-      <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/85 border border-[#decba5] shadow-sm mb-6 animate-pulse-subtle">
-        <Sparkles className="w-4 h-4 text-[#d4af37]" />
-        <span className="text-sm font-serif font-semibold tracking-[0.25em] text-[#722b3b] uppercase">
-          ॐ श्री गणेशाय नमः
-        </span>
-        <Sparkles className="w-4 h-4 text-[#d4af37]" />
-      </div>
 
-      <p className="text-xs sm:text-sm font-serif italic text-[#8c6d48] max-w-xl mx-auto mb-8 leading-relaxed">
-        "With the divine grace of the almighty and blessings of our beloved parents, we joyfully invite you to celebrate our new beginning."
+      <p 
+        className={`text-xs sm:text-sm font-serif italic text-[#8c6d48] max-w-xl mx-auto mb-8 leading-relaxed transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+        style={{ transitionDelay: '200ms' }}
+      >
+        "With the divine grace of the Almighty and the blessings of our beloved parents, we joyfully invite you to celebrate our new beginning."
       </p>
 
       {/* Main Couple Names */}
-      <div className="relative my-8">
+      <div 
+        className={`relative my-8 transition-all duration-[1200ms] ease-out ${
+          isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+        }`}
+        style={{ transitionDelay: '400ms' }}
+      >
         <div className="absolute left-1/2 -top-6 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
         
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#5a222f] font-normal tracking-tight">
@@ -65,7 +66,12 @@ export default function HeroSection() {
       </div>
 
       {/* Parents & Family Blessings */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-xs sm:text-sm font-serif text-[#664d3e]">
+      <div 
+        className={`mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto text-xs sm:text-sm font-serif text-[#664d3e] transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+        style={{ transitionDelay: '800ms' }}
+      >
         <div className="p-4 rounded-2xl bg-white/70 border border-[#eedfce] shadow-sm">
           <p className="font-bold text-[#722b3b] uppercase tracking-wider text-[11px] mb-1">Groom's Family</p>
           <p>{couple.groom.parents}</p>
@@ -77,7 +83,12 @@ export default function HeroSection() {
       </div>
 
       {/* Date Banner */}
-      <div className="mt-10 inline-block">
+      <div 
+        className={`mt-10 inline-block transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+        style={{ transitionDelay: '1000ms' }}
+      >
         <div className="glass-card px-8 py-4 rounded-3xl border border-[#decba5] shadow-card-soft">
           <div className="flex flex-wrap items-center justify-center gap-6 text-[#722b3b]">
             <div className="flex items-center gap-2.5">
@@ -94,7 +105,12 @@ export default function HeroSection() {
       </div>
 
       {/* Live Countdown Timer */}
-      <div className="mt-12 max-w-2xl mx-auto">
+      <div 
+        className={`mt-12 max-w-2xl mx-auto transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+        style={{ transitionDelay: '1200ms' }}
+      >
         <div className="flex items-center justify-center gap-2 mb-4">
           <Heart className="w-3.5 h-3.5 text-[#df325c] fill-current" />
           <span className="text-xs font-serif uppercase tracking-[0.2em] text-[#8c3a4b] font-semibold">

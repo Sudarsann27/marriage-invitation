@@ -54,20 +54,6 @@ export default function InteractiveBlessings() {
     }
   };
 
-  const blessingQuotes = [
-    {
-      shloka: "मङ्गलम् भगवान विष्णुः मङ्गलम् गरुडध्वजः।",
-      meaning: "May divine auspiciousness and eternal prosperity illuminate your married life."
-    },
-    {
-      shloka: "இருமனம் இணைந்து இல்லறம் தொடங்கும் இனிய தருணம்.",
-      meaning: "Two souls unite in love and dharma, embarking on a timeless life journey."
-    },
-    {
-      shloka: "ధర్మ ప్రవృత్తి, సత్య సంకల్పం, సుఖ సంపదలు.",
-      meaning: "May your home be blessed with harmony, health, abundance, and eternal laughter."
-    }
-  ];
 
   return (
     <section id="blessings-section" className="relative py-16 px-4 sm:px-6 max-w-5xl mx-auto text-center">
@@ -137,7 +123,7 @@ export default function InteractiveBlessings() {
           </span>
         </button>
 
-        {/* 4. Mangala Valthu */}
+        {/* 4. Mangala Vazhthu */}
         <button
           onClick={() => triggerShower('mangalam')}
           className="glass-card rounded-3xl p-5 sm:p-6 border border-[#decba5] shadow-card-soft hover:shadow-glow-gold hover:-translate-y-1 active:scale-95 transition-all flex flex-col items-center justify-between group"
@@ -146,7 +132,7 @@ export default function InteractiveBlessings() {
             <Sun className="w-7 h-7 animate-spin" style={{ animationDuration: '8s' }} />
           </div>
           <span className="text-xs font-serif font-bold text-[#722b3b] mb-1">
-            Mangala Valthu
+            Mangala Vazhthu
           </span>
           <span className="text-[10px] font-sans font-medium text-[#8c6d48] uppercase tracking-wider">
             ✨ {counts.mangalam} Blessings
@@ -163,22 +149,6 @@ export default function InteractiveBlessings() {
         </div>
       )}
 
-      {/* Sacred Verses & Auspicious Blessing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-        {blessingQuotes.map((q, idx) => (
-          <div 
-            key={idx} 
-            className="p-5 rounded-2xl bg-white/70 border border-[#eedfce] shadow-sm flex flex-col justify-center"
-          >
-            <p className="text-xs sm:text-sm font-serif font-bold text-[#722b3b] mb-1.5">
-              {q.shloka}
-            </p>
-            <p className="text-[11px] font-serif italic text-[#8c6d48]">
-              "{q.meaning}"
-            </p>
-          </div>
-        ))}
-      </div>
 
     </section>
   );

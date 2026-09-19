@@ -65,7 +65,7 @@ export default function StoryCarousel() {
         </div>
 
         {/* Caption */}
-        <div className="py-2 px-1">
+        <div className="py-2 px-1 min-h-[110px] flex flex-col justify-center">
           <h3 className="text-base font-serif font-medium text-[#722b3b] mb-1">
             {currentSlide.caption}
           </h3>

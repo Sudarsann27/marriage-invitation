@@ -55,14 +55,44 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
     setIsAnimating(true);
     clearInterval(pulseRef.current);
 
-    confetti({
-      particleCount: 90,
-      spread: 110,
-      origin: { y: 0.45 },
-      colors: ['#c9a227', '#f0d78c', '#fce4ec', '#e8c4a0', '#ffffff'],
-      disableForReducedMotion: true,
-      scalar: 0.85,
+    // Create a custom heart shape for the confetti
+    const heart = confetti.shapeFromPath({ 
+      path: 'M167 72c19,-38 37,-56 75,-56 42,0 76,33 76,75 0,76 -76,151 -151,227 -76,-76 -151,-151 -151,-227 0,-42 33,-75 75,-75 38,0 57,18 76,56z' 
     });
+
+    const defaults = {
+      spread: 120,
+      angle: 270, // Shoot downwards
+      ticks: 400, // Make them last longer on screen
+      gravity: 0.7,
+      decay: 0.94,
+      startVelocity: 20, // Lower initial push so they fall naturally
+      shapes: [heart],
+      colors: ['#c9a227', '#f0e8d6', '#990000', '#ffffff', '#e6c875', '#ff9999', '#ff4d4d'],
+      scalar: 0.5, // minute hearts/flowers
+      disableForReducedMotion: true,
+      zIndex: 100, // Ensure it sits on top of everything
+    };
+
+    // Heavy shower: Wave 1 (spawned way off-screen so the origin isn't visible)
+    confetti({ ...defaults, particleCount: 200, origin: { x: 0.1, y: -0.25 } });
+    confetti({ ...defaults, particleCount: 250, origin: { x: 0.3, y: -0.25 } });
+    confetti({ ...defaults, particleCount: 300, origin: { x: 0.5, y: -0.25 } });
+    confetti({ ...defaults, particleCount: 250, origin: { x: 0.7, y: -0.25 } });
+    confetti({ ...defaults, particleCount: 200, origin: { x: 0.9, y: -0.25 } });
+    
+    // Wave 2 (delayed slightly)
+    setTimeout(() => {
+      confetti({ ...defaults, particleCount: 200, origin: { x: 0.2, y: -0.25 } });
+      confetti({ ...defaults, particleCount: 250, origin: { x: 0.5, y: -0.25 } });
+      confetti({ ...defaults, particleCount: 200, origin: { x: 0.8, y: -0.25 } });
+    }, 250);
+
+    // Wave 3 (final lingering trail)
+    setTimeout(() => {
+      confetti({ ...defaults, particleCount: 150, origin: { x: 0.35, y: -0.25 } });
+      confetti({ ...defaults, particleCount: 150, origin: { x: 0.65, y: -0.25 } });
+    }, 500);
 
     setTimeout(() => {
       // Reset scroll to top before revealing main content
@@ -72,17 +102,17 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
       document.body.style.width = '';
       setIsOpened(true);
       onOpen();
-    }, 700);
+    }, 800);
   };
 
   if (!isOpen && isOpened) return null;
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden select-none transition-all duration-700 ease-in-out ${
-        isAnimating ? 'opacity-0 scale-[1.04] pointer-events-none' : 'opacity-100 scale-100'
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden select-none transition-all duration-[800ms] ease-in-out ${
+        isAnimating ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
-      style={{ background: '#0a0a0f' }}
+      style={{ backgroundColor: isAnimating ? 'transparent' : '#0a0a0f' }}
       onWheel={(e) => e.preventDefault()}
     >
       {/* Subtle gradient vignette */}
@@ -114,8 +144,10 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
 
         {/* Top line + label */}
         <div
-          className={`flex items-center gap-4 mb-10 transition-all duration-700 ${hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
-          style={{ transitionDelay: '0ms' }}
+          className={`flex items-center gap-4 mb-10 transition-all duration-1000 ${
+            isAnimating ? 'translate-y-[100vh] opacity-0 ease-in' : hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}
+          style={{ transitionDelay: isAnimating ? '0ms' : '0ms' }}
         >
           <div className="h-[1px] w-12 bg-[#c9a227] opacity-30" />
           <span
@@ -129,8 +161,10 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
 
         {/* Main headline */}
         <div
-          className={`mb-3 transition-all duration-700 ${hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ transitionDelay: '100ms' }}
+          className={`mb-3 transition-all duration-1000 ${
+            isAnimating ? 'translate-y-[100vh] opacity-0 ease-in' : hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+          style={{ transitionDelay: isAnimating ? '100ms' : '100ms' }}
         >
           <h1
             className="font-serif font-light"
@@ -159,12 +193,14 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
 
         {/* Subline */}
         <p
-          className={`font-serif mb-12 transition-all duration-700 ${hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          className={`font-serif mb-12 transition-all duration-1000 ${
+            isAnimating ? 'translate-y-[100vh] opacity-0 ease-in' : hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
           style={{
             fontSize: '13px',
             color: 'rgba(230,215,185,0.45)',
             letterSpacing: '0.06em',
-            transitionDelay: '160ms',
+            transitionDelay: isAnimating ? '200ms' : '160ms',
           }}
         >
           A celebration of love &amp; two families united
@@ -172,8 +208,10 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
 
         {/* ── Interactive tap element — Modern geometric ring ── */}
         <div
-          className={`relative mb-12 transition-all duration-700 ${hasEntered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
-          style={{ transitionDelay: '220ms', width: '96px', height: '96px' }}
+          className={`relative mb-12 transition-all duration-[1000ms] ${
+            isAnimating ? 'translate-y-[100vh] opacity-0 ease-in' : hasEntered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+          }`}
+          style={{ transitionDelay: isAnimating ? '300ms' : '220ms', width: '96px', height: '96px' }}
         >
           {/* Outer breathing ring */}
           <div
@@ -221,8 +259,10 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
 
         {/* Date & Venue teaser */}
         <div
-          className={`transition-all duration-700 ${hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ transitionDelay: '300ms' }}
+          className={`transition-all duration-1000 ${
+            isAnimating ? 'translate-y-[100vh] opacity-0 ease-in' : hasEntered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+          style={{ transitionDelay: isAnimating ? '400ms' : '300ms' }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-[1px] w-10" style={{ background: 'linear-gradient(to right, transparent, rgba(201,162,39,0.5))' }} />

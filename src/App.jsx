@@ -31,7 +31,7 @@ export default function App() {
       <main className={`relative z-10 transition-all duration-1000 ${
         isInvitationOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}>
-        <HeroSection />
+        <HeroSection isVisible={isInvitationOpen} />
         <StoryCarousel />
         <EventsTimeline />
         <VenueLocation />
