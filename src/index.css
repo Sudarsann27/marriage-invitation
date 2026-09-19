@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #faf7f2;
+    color: #43332b;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5eee6;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6ba94;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b89758;
+}
+
+/* Smooth Clean Background without noise */
+.paper-texture {
+  background: linear-gradient(180deg, #faf7f2 0%, #f9f2eb 40%, #faf5f0 70%, #fdfbf7 100%);
+}
+
+/* Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #a67c2e 0%, #d4af37 35%, #f3e5ab 50%, #c59b27 70%, #8a651a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rose-gold-text {
+  background: linear-gradient(135deg, #b05c6d 0%, #d97d90 40%, #f4aab7 60%, #a84d5f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gold border ornament */
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.gold-border-double {
+  border: 3px double rgba(197, 155, 39, 0.6);
+}
+
+/* 3D Perspective helper for Envelope */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Curtain Drapery Effect */
+.curtain-drape-left {
+  background: linear-gradient(90deg, 
+    #7a1b2d 0%, 
+    #98243b 20%, 
+    #691424 40%, 
+    #a82d46 60%, 
+    #5f1220 80%, 
+    #821e33 100%);
+  box-shadow: 10px 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.curtain-drape-right {
+  background: linear-gradient(90deg, 
+    #821e33 0%, 
+    #5f1220 20%, 
+    #a82d46 40%, 
+    #691424 60%, 
+    #98243b 80%, 
+    #7a1b2d 100%);
+  box-shadow: -10px 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Soft glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 235, 220, 0.7);
+}
+
+.glass-card-dark {
+  background: rgba(45, 25, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Velvet Roll-Up Curtain Effect */
+.curtain-velvet-rollup {
+  background: linear-gradient(180deg, 
+    #5a101d 0%, 
+    #7a1b2d 20%, 
+    #8c1c2e 50%, 
+    #691424 80%, 
+    #480c16 100%);
+  background-image: 
+    repeating-linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.04) 0px, 
+      rgba(255, 255, 255, 0.04) 35px, 
+      rgba(0, 0, 0, 0.15) 35px, 
+      rgba(0, 0, 0, 0.15) 70px),
+    linear-gradient(180deg, #5a101d 0%, #7a1b2d 20%, #8c1c2e 50%, #691424 80%, #480c16 100%);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
