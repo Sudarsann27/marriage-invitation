@@ -21,19 +21,18 @@ export const weddingData = {
   auspiciousMuhurthamTime: "06:00 AM – 07:30 AM",
   countdownTarget: "2026-11-01T06:00:00",
 
-  // Story slides (used by StoryCarousel)
   storySlides: [
     {
       id: 1,
-      image: "/images/ghibli-groom.jpg",
-      caption: "We met as college classmates. 🎓",
-      detail: "In a sunlit classroom filled with laughter and dreams, our story quietly began."
+      image: "/images/groom.png",
+      caption: "Meet the Groom 🤵",
+      detail: "Sudarsan — Stepping into a beautiful new chapter with a heart full of love and joy."
     },
     {
       id: 2,
-      image: "/images/ghibli-bride.jpg",
-      caption: "We became friends, then best friends. 🤍",
-      detail: "Sharing notes, countless coffees, and late-night talks about the future."
+      image: "/images/bride.png",
+      caption: "Meet the Bride 👰‍♀️",
+      detail: "Hamshavarthini — A beautiful soul ready to embark on a lifetime of love and togetherness."
     },
     {
       id: 3,
@@ -43,13 +42,13 @@ export const weddingData = {
     },
     {
       id: 4,
-      image: "/images/ghibli-groom.jpg",
+      image: "/images/ghibli-couple.jpg",
       caption: "Two careers, miles apart, yet closer every day. 💼",
       detail: "Through busy schedules and long-distance calls, our bond only grew stronger."
     },
     {
       id: 5,
-      image: "/images/ghibli-couple.jpg",
+      image: "/images/meet.png",
       caption: "Two families, one love, and now... forever. 💍❤️",
       detail: "With the blessings of our parents, we are stepping into our forever together."
     }
