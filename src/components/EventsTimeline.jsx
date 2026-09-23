@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Calendar, Clock, MapPin, Sparkles, Heart, Download, Shirt, Gem } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function EventsTimeline() {
+  const { t } = useTranslation();
   const { events, couple } = weddingData;
 
   const downloadIcs = (event) => {
@@ -41,13 +43,13 @@ END:VCALENDAR`;
       <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/85 border border-[#decba5] text-xs font-serif tracking-widest text-[#722b3b] uppercase mb-3">
           <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-          <span>Auspicious Program</span>
+          <span>{t('events.sectionHeader')}</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-serif text-[#5a222f] font-normal tracking-tight">
-          Wedding Events & Ceremonies
+          {t('events.sectionTitle')}
         </h2>
         <p className="mt-3 text-xs sm:text-sm font-serif italic text-[#8c6d48] max-w-lg mx-auto">
-          We invite you to grace all three auspicious occasions with your presence and heartfelt blessings.
+          {t('events.sectionDesc')}
         </p>
       </div>
 
@@ -85,26 +87,26 @@ END:VCALENDAR`;
                 </div>
 
                 <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#5a222f] mb-1">
-                  {evt.title}
+                  {t(`events.list.${evt.id}.title`)}
                 </h3>
                 <p className="text-xs font-serif italic text-[#8c6d48] mb-6">
-                  {evt.subtitle}
+                  {t(`events.list.${evt.id}.subtitle`)}
                 </p>
 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-[#722b3b] font-medium bg-white/70 p-2.5 rounded-xl border border-[#eedfce]">
                     <Calendar className="w-4 h-4 text-[#d4af37] shrink-0" />
-                    <span>{evt.date}</span>
+                    <span>{t(`events.list.${evt.id}.date`)}</span>
                   </div>
 
                   <div className="flex items-center gap-3 text-xs sm:text-sm text-[#722b3b] font-medium bg-white/70 p-2.5 rounded-xl border border-[#eedfce]">
                     <Clock className="w-4 h-4 text-[#d4af37] shrink-0" />
-                    <span>{evt.time}</span>
+                    <span>{t(`events.list.${evt.id}.time`)}</span>
                   </div>
 
                   <div className="flex items-start gap-3 text-xs text-[#664d3e] bg-white/70 p-2.5 rounded-xl border border-[#eedfce]">
                     <MapPin className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
-                    <span>{evt.venue}</span>
+                    <span>{t(`events.list.${evt.id}.venue`)}</span>
                   </div>
                 </div>
 
@@ -114,12 +116,12 @@ END:VCALENDAR`;
                     <span>Dress Code</span>
                   </div>
                   <p className="text-xs font-serif text-[#722b3b]">
-                    {evt.dressCode}
+                    {t(`events.list.${evt.id}.dressCode`)}
                   </p>
                 </div>
 
                 <p className="text-xs font-serif text-[#664d3e] leading-relaxed mb-6">
-                  {evt.description}
+                  {t(`events.list.${evt.id}.description`)}
                 </p>
               </div>
 

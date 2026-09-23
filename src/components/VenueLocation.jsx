@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Navigation, Copy, Check, Car, Phone, Mail, Plane, Train, Sparkles } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function VenueLocation() {
+  const { t } = useTranslation();
   const { venue } = weddingData;
   const [copied, setCopied] = useState(false);
 
@@ -19,10 +21,10 @@ export default function VenueLocation() {
       <div className="text-center mb-16">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/85 border border-[#decba5] text-xs font-serif tracking-widest text-[#722b3b] uppercase mb-3">
           <MapPin className="w-3.5 h-3.5 text-[#df325c]" />
-          <span>The Venue</span>
+          <span>{t('venue.sectionHeader')}</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-serif text-[#5a222f] font-normal tracking-tight">
-          Mahal Location & Directions
+          {t('venue.sectionTitle')}
         </h2>
         <p className="mt-3 text-xs sm:text-sm font-serif italic text-[#8c6d48] max-w-lg mx-auto">
           We look forward to welcoming you to this joyous celebration. Find easy navigation routes and venue amenities below.
@@ -38,10 +40,10 @@ export default function VenueLocation() {
             Ceremony Venue
           </span>
           <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#5a222f] leading-tight mb-2">
-            {venue.name}
+            {t('venue.name')}
           </h3>
           <p className="text-xs font-serif italic text-[#8c6d48] mb-6">
-            {venue.tagline}
+            {t('venue.tagline')}
           </p>
 
           <div className="space-y-4 mb-8">
@@ -49,8 +51,8 @@ export default function VenueLocation() {
               <MapPin className="w-5 h-5 text-[#df325c] shrink-0 mt-0.5" />
               <div>
                 <p className="text-xs font-serif font-bold text-[#722b3b] mb-0.5">Address</p>
-                <p className="text-xs text-[#5a222f] leading-relaxed">{venue.address}</p>
-                <p className="text-xs text-[#5a222f] font-medium">{venue.city}</p>
+                <p className="text-xs text-[#5a222f] leading-relaxed">{t('venue.address')}</p>
+                <p className="text-xs text-[#5a222f] font-medium">{t('venue.city')}</p>
                 <p className="text-[11px] text-[#8c6d48] mt-1 italic">Landmark: {venue.landmark}</p>
               </div>
             </div>
@@ -73,7 +75,7 @@ export default function VenueLocation() {
               className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#722b3b] to-[#8c3a4b] text-white font-serif font-bold text-sm shadow-md hover:shadow-glow-rose hover:scale-[1.02] active:scale-98 transition-all"
             >
               <Navigation className="w-4 h-4 text-[#ffeaa7]" />
-              <span>Open in Google Maps</span>
+              <span>{t('venue.openMap')}</span>
             </a>
 
             <div className="grid grid-cols-2 gap-3">

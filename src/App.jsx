@@ -7,6 +7,7 @@ import VenueLocation from './components/VenueLocation';
 import InteractiveBlessings from './components/InteractiveBlessings';
 import Footer from './components/Footer';
 import PetalsCanvas from './components/PetalsCanvas';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 export default function App() {
   const [isInvitationOpen, setIsInvitationOpen] = useState(false);
@@ -20,6 +21,8 @@ export default function App() {
       
       {/* Ambient Floating Blossom Petals */}
       <PetalsCanvas />
+
+      <LanguageSwitcher />
 
       {/* 1. Interactive 3D Royal Gatefold Invitation Card */}
       <EnvelopeModal 

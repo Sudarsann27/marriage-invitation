@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
+import { Heart } from 'lucide-react';
 
 // Static geometric dot positions — deterministic so no re-randomize flicker
 const DOTS = Array.from({ length: 36 }, (_, i) => ({
@@ -112,14 +113,29 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
       className={`fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden select-none transition-all duration-[800ms] ease-in-out ${
         isAnimating ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
-      style={{ backgroundColor: isAnimating ? 'transparent' : '#0a0a0f' }}
+      style={{ backgroundColor: isAnimating ? 'transparent' : '#3c141e' }}
       onWheel={(e) => e.preventDefault()}
     >
+      <style>
+        {`
+          @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
+          }
+          .animate-heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+          }
+        `}
+      </style>
+
       {/* Subtle gradient vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(25,18,10,0) 0%, rgba(10,10,15,0.9) 100%)',
+          background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(90,34,47,0.4) 0%, rgba(45,15,22,0.95) 100%)',
         }}
       />
 
@@ -213,47 +229,43 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
           }`}
           style={{ transitionDelay: isAnimating ? '300ms' : '220ms', width: '96px', height: '96px' }}
         >
+          {/* Continuous pulsing ripples to grab attention immediately */}
+          <div className="absolute inset-0 rounded-full border border-[#d4af37] animate-ping opacity-75" style={{ animationDuration: '2s' }}></div>
+          <div className="absolute inset-0 rounded-full border border-[#d4af37] animate-ping opacity-50" style={{ animationDuration: '2s', animationDelay: '1s' }}></div>
+          
           {/* Outer breathing ring */}
           <div
             className="absolute inset-0 rounded-full border transition-all duration-1000 ease-out"
             style={{
-              borderColor: 'rgba(201,162,39,0.5)',
+              borderColor: 'rgba(212,175,55,0.8)',
               transform: ringScale ? 'scale(1.22)' : 'scale(1)',
-              opacity: ringScale ? 0 : 0.6,
+              opacity: ringScale ? 0 : 0.8,
             }}
           />
 
           {/* Static outer ring */}
           <div
             className="absolute inset-0 rounded-full border"
-            style={{ borderColor: 'rgba(201,162,39,0.2)' }}
+            style={{ borderColor: 'rgba(212,175,55,0.3)' }}
           />
 
           {/* Mid ring */}
           <div
             className="absolute inset-3 rounded-full border"
-            style={{ borderColor: 'rgba(201,162,39,0.35)' }}
+            style={{ borderColor: 'rgba(212,175,55,0.5)' }}
           />
 
           {/* Inner filled disc */}
           <div
-            className="absolute inset-6 rounded-full transition-transform duration-300 hover:scale-110"
+            className="absolute inset-5 rounded-full transition-transform duration-300 flex items-center justify-center animate-heartbeat cursor-pointer"
             style={{
-              background: 'linear-gradient(145deg, #2a1f0a 0%, #1a1306 100%)',
-              border: '1px solid rgba(201,162,39,0.5)',
-              boxShadow: '0 0 20px rgba(201,162,39,0.15), inset 0 1px 3px rgba(0,0,0,0.6)',
+              background: 'linear-gradient(145deg, #722b3b 0%, #3c141e 100%)',
+              border: '1.5px solid rgba(212,175,55,0.9)',
+              boxShadow: '0 0 30px rgba(212,175,55,0.6), inset 0 2px 5px rgba(0,0,0,0.8)',
             }}
           >
-            {/* SVG geometric motif in centre */}
-            <svg
-              viewBox="0 0 24 24"
-              className="absolute inset-0 m-auto w-5 h-5"
-              fill="none"
-              stroke="#c9a227"
-              strokeWidth="1.2"
-            >
-              <path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z" />
-            </svg>
+            {/* Beating Heart Icon */}
+            <Heart className="w-7 h-7 text-[#ffeaa7] fill-[#d4af37]" />
           </div>
         </div>
 
@@ -284,20 +296,6 @@ export default function EnvelopeModal({ onOpen, isOpen }) {
           </p>
         </div>
 
-        {/* Tap CTA */}
-        <p
-          className={`mt-12 font-serif italic transition-all duration-500 ${
-            isAnimating ? 'opacity-0' : hasEntered ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            fontSize: '11px',
-            color: 'rgba(201,162,39,0.38)',
-            letterSpacing: '0.12em',
-            transitionDelay: '400ms',
-          }}
-        >
-          — tap anywhere to enter —
-        </p>
       </div>
     </div>
   );

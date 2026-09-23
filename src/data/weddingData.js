@@ -21,36 +21,26 @@ export const weddingData = {
   auspiciousMuhurthamTime: "06:00 AM – 07:30 AM",
   countdownTarget: "2026-11-01T06:00:00",
 
-  storySlides: [
+  storyCards: [
     {
-      id: 1,
-      image: "/images/groom.png",
-      caption: "Meet the Groom 🤵",
-      detail: "Sudarsan — Stepping into a beautiful new chapter with a heart full of love and joy."
+      id: "card1",
+      groomImage: "/images/generated/groom_first_impression.png",
+      brideImage: "/images/generated/bride_first_impression.png",
     },
     {
-      id: 2,
-      image: "/images/bride.png",
-      caption: "Meet the Bride 👰‍♀️",
-      detail: "Hamshavarthini — A beautiful soul ready to embark on a lifetime of love and togetherness."
+      id: "card2",
+      groomImage: "/images/generated/groom_first_date.png",
+      brideImage: "/images/generated/bride_first_date.png",
     },
     {
-      id: 3,
-      image: "/images/ghibli-couple.jpg",
-      caption: "Somewhere along the way, we fell in love. 💕",
-      detail: "Without realizing when or how, our hearts knew they belonged together."
+      id: "card3",
+      groomImage: "/images/generated/groom_proposal.png",
+      brideImage: "/images/generated/bride_proposal.png",
     },
     {
-      id: 4,
-      image: "/images/ghibli-couple.jpg",
-      caption: "Two careers, miles apart, yet closer every day. 💼",
-      detail: "Through busy schedules and long-distance calls, our bond only grew stronger."
-    },
-    {
-      id: 5,
-      image: "/images/meet.png",
-      caption: "Two families, one love, and now... forever. 💍❤️",
-      detail: "With the blessings of our parents, we are stepping into our forever together."
+      id: "card4",
+      groomImage: "/images/generated/groom_future.png",
+      brideImage: "/images/generated/bride_future.png",
     }
   ],
 
@@ -76,7 +66,7 @@ export const weddingData = {
       date: "Saturday, October 31, 2026",
       time: "07:00 PM onwards",
       venue: "Main Hall, Vysya Mahal, Salem",
-      dressCode: "Traditional Silk / Formal Attire",
+      dressCode: "Lehanga / Tuxedo",
       icon: "Sparkles",
       color: "from-amber-500/20 to-yellow-500/10",
       badgeColor: "bg-amber-100 text-amber-800",
@@ -87,14 +77,14 @@ export const weddingData = {
       title: "Auspicious Muhurtham",
       subtitle: "The sacred Vedic rituals, floral garlands & mangalsutra ceremony",
       date: "Sunday, November 1, 2026",
-      time: "06:00 AM – 07:15 AM (Breakfast from 07:15 AM)",
+      time: "06:00 AM – 07:15 AM",
       venue: "Ugadhi Nanbargal Hall, Vysya Mahal, Salem",
-      dressCode: "Traditional Kanchipuram Silk & Pattu Veshti / Sarees",
+      dressCode: "Traditional Silk Saree & Pattu Veshti",
       icon: "Heart",
       isPrimary: true,
       color: "from-red-500/20 to-rose-500/10",
       badgeColor: "bg-red-100 text-red-900 border border-red-300",
-      description: "Witness the sacred Vedic rituals, saptapadi (seven sacred steps), and the tying of the sacred mangalsutra amidst auspicious nadaswaram melodies."
+      description: "Witness the sacred Vedic rituals and the tying of the sacred mangalsutra amidst auspicious nadaswaram melodies."
     }
   ],
 

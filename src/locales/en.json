@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "inviteText": "\"With the divine grace of the Almighty and the blessings of our beloved parents, we joyfully invite you to celebrate our new beginning.\"",
+    "tagline": "Two Souls, One Heart, An Eternal Journey",
+    "groomsFamily": "Groom's Family",
+    "bridesFamily": "Bride's Family",
+    "muhurtham": "Muhurtham",
+    "countdownText": "Counting Down To The Sacred Vows",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "couple": {
+    "groomName": "Sudarsan",
+    "groomParents": "S/o Mr. P. B. Nandakumar & Mrs. Geetha Nandakumar",
+    "brideName": "Hamshavarthini",
+    "brideParents": "D/o Mr. P. N. Srinivasan & Mrs. Sasikala Srinivasan",
+    "monogram": "S & H",
+    "signature": "Sudarsan & Hamshavarthini"
+  },
+  "story": {
+    "sectionHeader": "Our Story",
+    "sectionTitle": "Our Little Story",
+    "sectionDesc": "Two hearts, two families, one beautiful beginning — and a new chapter waiting to unfold.",
+    "cards": {
+      "card1": {
+        "title": "The First Impression",
+        "front": "I played it incredibly cool but was nervous a lot. She was captivated by my charm in silence.",
+        "back": "He was so nervous he couldn't stop talking. But I thought it was kind of cute."
+      },
+      "card2": {
+        "title": "The First Date",
+        "front": "I arrived early and was too nervous to even make eye contact. I was just happy she agreed to meet me.",
+        "back": "I spent hours getting ready so I would look perfect, and I was so happy he was there."
+      },
+      "card3": {
+        "title": "The Big Decision",
+        "front": "I knew she was the one but I was too afraid to admit it.",
+        "back": "I dropped 100 obvious hints until he finally realized it was time."
+      },
+      "card4": {
+        "title": "The Future",
+        "front": "I can't wait to spend the rest of my life agreeing with her.",
+        "back": "I can't wait to spend the rest of my life always being right."
+      }
+    }
+  },
+  "events": {
+    "sectionHeader": "Auspicious Ceremonies",
+    "sectionTitle": "Wedding Itinerary",
+    "sectionDesc": "Join us in these sacred celebrations as we step into our forever.",
+    "list": {
+      "engagement": {
+        "title": "Engagement Ceremony",
+        "subtitle": "The auspicious ring exchange & formal betrothal celebration",
+        "date": "Saturday, October 31, 2026",
+        "time": "10:30 AM onwards",
+        "venue": "Main Hall, Vysya Mahal, Salem",
+        "dressCode": "Traditional Silk / Ethnic Formals",
+        "description": "The joyous exchange of rings and blessings from both families, marking the beginning of a new chapter with love and celebration."
+      },
+      "reception": {
+        "title": "Wedding Reception",
+        "subtitle": "An elegant evening of blessings & celebration",
+        "date": "Saturday, October 31, 2026",
+        "time": "07:00 PM onwards",
+        "venue": "Main Hall, Vysya Mahal, Salem",
+        "dressCode": "Lehanga / Tuxedo",
+        "description": "An auspicious evening welcoming our cherished friends and family to bestow their blessings on the couple, followed by a festive feast."
+      },
+      "muhurtham": {
+        "title": "Auspicious Muhurtham",
+        "subtitle": "The sacred Vedic rituals, floral garlands & mangalsutra ceremony",
+        "date": "Sunday, November 1, 2026",
+        "time": "06:00 AM – 07:15 AM",
+        "venue": "Ugadhi Nanbargal Hall, Vysya Mahal, Salem",
+        "dressCode": "Traditional Silk Saree & Pattu Veshti",
+        "description": "Witness the sacred Vedic rituals and the tying of the sacred mangalsutra amidst auspicious nadaswaram melodies."
+      }
+    }
+  },
+  "venue": {
+    "sectionHeader": "Location",
+    "sectionTitle": "The Wedding Venue",
+    "name": "Vysya Mahal",
+    "tagline": "A majestic traditional wedding venue in the heart of Salem",
+    "address": "M56Q+6H5, Military Rd, Ammapet",
+    "city": "Salem (M.Corp.), Tamil Nadu - 636003",
+    "openMap": "Open in Google Maps",
+    "amenitiesTitle": "Venue Amenities",
+    "travelTitle": "How to Reach",
+    "amenities": {
+      "parking": "Spacious Car Parking",
+      "ac": "Air Conditioned Dining & Mandapam",
+      "rooms": "Guest Accommodation Rooms",
+      "wheelchair": "Wheelchair Accessible"
+    },
+    "travel": {
+      "airport": "Salem Airport (SXV) ~22 km / Coimbatore Airport (CJB) ~160 km",
+      "train": "Salem Town Station (3 km) / Salem Junction (7 km)",
+      "bus": "Salem New & Old Bus Stand (4.5 km)"
+    }
+  },
+  "blessings": {
+    "sectionHeader": "Shower of Blessings",
+    "sectionTitle": "Bestow Your Blessings",
+    "desc": "Tap the sacred blessing buttons below to shower {{groom}} & {{bride}} with love, flowers, and divine grace.",
+    "petals": "Shower Petals",
+    "petalsCount": "Showered",
+    "diya": "Light a Diya",
+    "diyaCount": "Diyas Lit",
+    "heart": "Send Love",
+    "heartCount": "Hearts",
+    "mangalam": "Mangala Vazhthu",
+    "mangalamCount": "Blessings",
+    "toast": "✨ Divine blessings bestowed upon {{groom}} & {{bride}}! ✨"
+  },
+  "footer": {
+    "nav": {
+      "wedding": "Our Wedding",
+      "story": "Our Story",
+      "ceremonies": "Ceremonies",
+      "location": "Mahal Location",
+      "blessings": "Blessings"
+    },
+    "returnTop": "Return to Top",
+    "crafted": "Crafted with boundless",
+    "craftedFor": "for our beloved family & friends"
+  },
+  "envelope": {
+    "topText": "YOU'RE INVITED",
+    "weddingOf": "To the Wedding of",
+    "open": "TAP TO OPEN"
+  },
+  "common": {
+    "formattedDate": "Sunday, November 1, 2026",
+    "auspiciousMuhurthamTime": "06:00 AM – 07:30 AM"
+  }
+}

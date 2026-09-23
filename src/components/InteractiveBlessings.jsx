@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import confetti from 'canvas-confetti';
 import { Sparkles, Heart, Flower2, Flame, Sun, Award } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function InteractiveBlessings() {
+  const { t } = useTranslation();
   const { couple } = weddingData;
   const [counts, setCounts] = useState({
     petals: 342,
@@ -62,14 +64,11 @@ export default function InteractiveBlessings() {
       <div className="mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fcedee] border border-[#f4aab7] text-xs font-serif tracking-widest text-[#b05c6d] uppercase mb-3">
           <Sparkles className="w-3.5 h-3.5 text-[#df325c]" />
-          <span>Shower of Blessings</span>
+          <span>{t('blessings.sectionHeader')}</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-serif text-[#5a222f] font-normal tracking-tight">
-          Bestow Your Blessings
+          {t('blessings.sectionTitle')}
         </h2>
-        <p className="mt-3 text-xs sm:text-sm font-serif italic text-[#8c6d48] max-w-md mx-auto leading-relaxed">
-          Tap the sacred blessing buttons below to shower {couple.groom.name} & {couple.bride.name} with love, flowers, and divine grace.
-        </p>
       </div>
 
       {/* Interactive Blessing Buttons Grid */}
@@ -84,10 +83,10 @@ export default function InteractiveBlessings() {
             <Flower2 className="w-7 h-7 animate-pulse" />
           </div>
           <span className="text-xs font-serif font-bold text-[#722b3b] mb-1">
-            Shower Petals
+            {t('blessings.petals')}
           </span>
           <span className="text-[10px] font-sans font-medium text-[#8c6d48] uppercase tracking-wider">
-            🌸 {counts.petals} Showered
+            🌸 {counts.petals} {t('blessings.petalsCount')}
           </span>
         </button>
 
@@ -100,10 +99,10 @@ export default function InteractiveBlessings() {
             <Flame className="w-7 h-7 animate-bounce" />
           </div>
           <span className="text-xs font-serif font-bold text-[#722b3b] mb-1">
-            Light a Diya
+            {t('blessings.diya')}
           </span>
           <span className="text-[10px] font-sans font-medium text-[#8c6d48] uppercase tracking-wider">
-            🪔 {counts.diyas} Diyas Lit
+            🪔 {counts.diyas} {t('blessings.diyaCount')}
           </span>
         </button>
 
@@ -116,10 +115,10 @@ export default function InteractiveBlessings() {
             <Heart className="w-7 h-7 fill-current animate-pulse" />
           </div>
           <span className="text-xs font-serif font-bold text-[#722b3b] mb-1">
-            Send Love
+            {t('blessings.heart')}
           </span>
           <span className="text-[10px] font-sans font-medium text-[#8c6d48] uppercase tracking-wider">
-            💖 {counts.hearts} Hearts
+            💖 {counts.hearts} {t('blessings.heartCount')}
           </span>
         </button>
 
@@ -132,10 +131,10 @@ export default function InteractiveBlessings() {
             <Sun className="w-7 h-7 animate-spin" style={{ animationDuration: '8s' }} />
           </div>
           <span className="text-xs font-serif font-bold text-[#722b3b] mb-1">
-            Mangala Vazhthu
+            {t('blessings.mangalam')}
           </span>
           <span className="text-[10px] font-sans font-medium text-[#8c6d48] uppercase tracking-wider">
-            ✨ {counts.mangalam} Blessings
+            ✨ {counts.mangalam} {t('blessings.mangalamCount')}
           </span>
         </button>
 
@@ -145,7 +144,7 @@ export default function InteractiveBlessings() {
       {activeBlessing && (
         <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/95 border border-[#d4af37] shadow-lg text-xs font-serif font-bold text-[#722b3b] animate-fadeIn mb-8">
           <Sparkles className="w-4 h-4 text-[#d4af37]" />
-          <span>✨ Divine blessings bestowed upon {couple.groom.name} & {couple.bride.name}! ✨</span>
+          <span>{t('blessings.toast', { groom: t('couple.groomName'), bride: t('couple.brideName') })}</span>
         </div>
       )}
 

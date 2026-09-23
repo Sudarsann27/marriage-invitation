@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Heart, ArrowUp } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const { couple } = weddingData;
 
   const scrollToTop = () => {
@@ -27,25 +29,21 @@ export default function Footer() {
         </div>
 
         <h3 className="text-2xl sm:text-3xl font-serif text-white font-medium mb-2">
-          {couple.groom.name} <span className="font-script text-3xl sm:text-4xl text-[#d4af37] mx-1">&</span> {couple.bride.name}
+          {t('couple.groomName')} <span className="font-script text-3xl sm:text-4xl text-[#d4af37] mx-1">&</span> {t('couple.brideName')}
         </h3>
 
-        <p className="text-xs font-serif italic text-[#cbb07a] max-w-md mx-auto mb-8">
-          "सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः"<br/>
-          (May all beings everywhere be happy, healthy, and blessed with peace)
-        </p>
 
         {/* Navigation links */}
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs font-serif tracking-wider uppercase text-[#decba5] mb-10">
-          <a href="#hero-invitation" className="hover:text-white transition-colors">Our Wedding</a>
+          <a href="#hero-invitation" className="hover:text-white transition-colors">{t('footer.nav.wedding')}</a>
           <span>•</span>
-          <a href="#story-section" className="hover:text-white transition-colors">Our Story</a>
+          <a href="#story-section" className="hover:text-white transition-colors">{t('footer.nav.story')}</a>
           <span>•</span>
-          <a href="#events-schedule" className="hover:text-white transition-colors">Ceremonies</a>
+          <a href="#events-schedule" className="hover:text-white transition-colors">{t('footer.nav.ceremonies')}</a>
           <span>•</span>
-          <a href="#venue-location" className="hover:text-white transition-colors">Mahal Location</a>
+          <a href="#venue-location" className="hover:text-white transition-colors">{t('footer.nav.location')}</a>
           <span>•</span>
-          <a href="#guestbook" className="hover:text-white transition-colors">Blessings</a>
+          <a href="#guestbook" className="hover:text-white transition-colors">{t('footer.nav.blessings')}</a>
         </div>
 
         <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent mx-auto mb-8"></div>
@@ -56,13 +54,13 @@ export default function Footer() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-[#decba5]/40 text-xs font-sans text-[#ffeaa7] transition-all mb-8 hover:scale-105"
         >
           <ArrowUp className="w-3.5 h-3.5" />
-          <span>Return to Top</span>
+          <span>{t('footer.returnTop')}</span>
         </button>
 
         <p className="text-[11px] font-sans text-[#a89080] flex items-center justify-center gap-1.5">
-          <span>Crafted with boundless</span>
+          <span>{t('footer.crafted')}</span>
           <Heart className="w-3.5 h-3.5 text-[#df325c] fill-current" />
-          <span>for our beloved family & friends</span>
+          <span>{t('footer.craftedFor')}</span>
         </p>
 
       </div>
