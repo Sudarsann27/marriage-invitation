@@ -19,9 +19,14 @@ export const weddingData = {
   // Wedding date & timing (used by HeroSection countdown)
   formattedDate: "Sunday, November 1, 2026",
   auspiciousMuhurthamTime: "06:00 AM – 07:30 AM",
-  countdownTarget: "2026-11-01T06:00:00",
+  countdownTarget: "2026-11-01T06:00:00+05:30",
 
   storyCards: [
+    {
+      id: "card4",
+      groomImage: "/images/generated/groom_future.png",
+      brideImage: "/images/generated/bride_future.png",
+    },
     {
       id: "card1",
       groomImage: "/images/generated/groom_first_impression.png",
@@ -36,11 +41,6 @@ export const weddingData = {
       id: "card3",
       groomImage: "/images/generated/groom_proposal.png",
       brideImage: "/images/generated/bride_proposal.png",
-    },
-    {
-      id: "card4",
-      groomImage: "/images/generated/groom_future.png",
-      brideImage: "/images/generated/bride_future.png",
     }
   ],
 

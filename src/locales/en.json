@@ -9,7 +9,10 @@
     "days": "Days",
     "hours": "Hours",
     "minutes": "Minutes",
-    "seconds": "Seconds"
+    "seconds": "Seconds",
+    "celebrationTitle": "✨ Just Married! ✨",
+    "celebrationSubtitle": "The sacred vows have been made and the celebrations have begun! Thank you for blessing our new beginning.",
+    "celebrationBadge": "Happily Ever After Begins"
   },
   "couple": {
     "groomName": "Sudarsan",

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Heart } from 'lucide-react';
+import { Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function StoryCarousel() {
@@ -105,7 +105,25 @@ export default function StoryCarousel() {
             ))}
           </div>
 
-          {/* 2. Tap-to-Navigate Zones */}
+          {/* 2. Navigation Chevrons & Tap Zones */}
+          <button 
+            type="button"
+            onClick={prevSlide}
+            aria-label="Previous Slide"
+            className="absolute left-2.5 sm:left-3.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white/60 hover:bg-white/95 text-[#722b3b] shadow-md backdrop-blur-md border border-white/50 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer drop-shadow-sm"
+          >
+            <ChevronLeft className="w-5 h-5 text-[#722b3b]" strokeWidth={2.5} />
+          </button>
+
+          <button 
+            type="button"
+            onClick={nextSlide}
+            aria-label="Next Slide"
+            className="absolute right-2.5 sm:right-3.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full bg-white/60 hover:bg-white/95 text-[#722b3b] shadow-md backdrop-blur-md border border-white/50 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer drop-shadow-sm"
+          >
+            <ChevronRight className="w-5 h-5 text-[#722b3b]" strokeWidth={2.5} />
+          </button>
+
           <div 
             className="absolute top-0 left-0 w-[40%] h-full z-20 cursor-pointer"
             onClick={prevSlide}

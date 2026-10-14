@@ -8,17 +8,20 @@ export default function HeroSection({ isVisible }) {
   const { countdownTarget } = weddingData;
 
   const calculateTimeLeft = () => {
-    const target = countdownTarget || "2026-11-01T06:00:00";
+    const target = countdownTarget || "2026-11-01T06:00:00+05:30";
     const difference = +new Date(target) - +new Date();
-    let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0, isExpired: false };
 
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
+        seconds: Math.floor((difference / 1000) % 60),
+        isExpired: false
       };
+    } else {
+      timeLeft.isExpired = true;
     }
     return timeLeft;
   };
@@ -26,11 +29,17 @@ export default function HeroSection({ isVisible }) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
+    if (timeLeft.isExpired) return;
+
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const updated = calculateTimeLeft();
+      setTimeLeft(updated);
+      if (updated.isExpired) {
+        clearInterval(timer);
+      }
     }, 1000);
     return () => clearInterval(timer);
-  }, [countdownTarget]);
+  }, [countdownTarget, timeLeft.isExpired]);
 
   return (
     <section id="hero-invitation" className="relative pt-24 pb-16 px-4 sm:px-6 max-w-5xl mx-auto text-center">
@@ -106,41 +115,67 @@ export default function HeroSection({ isVisible }) {
         </div>
       </div>
 
-      {/* Live Countdown Timer */}
+      {/* Live Countdown Timer or Celebratory Banner */}
       <div 
         className={`mt-12 max-w-2xl mx-auto transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
         style={{ transitionDelay: '1200ms' }}
       >
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Heart className="w-3.5 h-3.5 text-[#df325c] fill-current animate-pulse" />
-          <span className="text-xs font-serif uppercase tracking-[0.2em] text-[#8c3a4b] font-semibold">
-            {t('hero.countdownText')}
-          </span>
-          <Heart className="w-3.5 h-3.5 text-[#df325c] fill-current animate-pulse" />
-        </div>
-
-        <div className="grid grid-cols-4 gap-2.5 sm:gap-4">
-          {[
-            { label: t('hero.days'), value: timeLeft.days },
-            { label: t('hero.hours'), value: timeLeft.hours },
-            { label: t('hero.minutes'), value: timeLeft.minutes },
-            { label: t('hero.seconds'), value: timeLeft.seconds }
-          ].map((item, idx) => (
-            <div 
-              key={idx} 
-              className="bg-gradient-to-b from-[#fff0f3] to-[#ffe5ea] p-3 sm:p-5 rounded-2xl border-2 border-[#f4aab7]/80 shadow-card-soft hover:shadow-glow-rose relative overflow-hidden group hover:border-[#df325c]/50 transition-all"
-            >
-              <div className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-[#b02a48] group-hover:scale-105 transition-transform">
-                {String(item.value).padStart(2, '0')}
-              </div>
-              <div className="text-[10px] sm:text-xs font-sans uppercase tracking-wider text-[#a67c2e] font-bold mt-1">
-                {item.label}
-              </div>
+        {timeLeft.isExpired ? (
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#ffeef2] via-[#fffbf2] to-[#ffeef2] p-6 sm:p-8 border-2 border-[#d4af37]/60 shadow-[0_10px_35px_rgba(212,175,55,0.18)]">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Sparkles className="w-5 h-5 text-[#d4af37]" />
+              <Heart className="w-5 h-5 text-[#df325c] fill-[#df325c] animate-pulse" />
+              <Sparkles className="w-5 h-5 text-[#d4af37]" />
             </div>
-          ))}
-        </div>
+
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#722b3b] tracking-tight mb-2">
+              {t('hero.celebrationTitle')}
+            </h3>
+
+            <p className="text-sm sm:text-base font-serif italic text-[#8c6d48] max-w-md mx-auto leading-relaxed">
+              {t('hero.celebrationSubtitle')}
+            </p>
+
+            <div className="mt-5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#decba5] shadow-sm text-xs font-sans uppercase tracking-widest text-[#a67c2e] font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>{t('hero.celebrationBadge')}</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Heart className="w-3.5 h-3.5 text-[#df325c] fill-current animate-pulse" />
+              <span className="text-xs font-serif uppercase tracking-[0.2em] text-[#8c3a4b] font-semibold">
+                {t('hero.countdownText')}
+              </span>
+              <Heart className="w-3.5 h-3.5 text-[#df325c] fill-current animate-pulse" />
+            </div>
+
+            <div className="grid grid-cols-4 gap-2.5 sm:gap-4">
+              {[
+                { label: t('hero.days'), value: timeLeft.days },
+                { label: t('hero.hours'), value: timeLeft.hours },
+                { label: t('hero.minutes'), value: timeLeft.minutes },
+                { label: t('hero.seconds'), value: timeLeft.seconds }
+              ].map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-gradient-to-b from-[#fff0f3] to-[#ffe5ea] p-3 sm:p-5 rounded-2xl border-2 border-[#f4aab7]/80 shadow-card-soft hover:shadow-glow-rose relative overflow-hidden group hover:border-[#df325c]/50 transition-all"
+                >
+                  <div className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-[#b02a48] group-hover:scale-105 transition-transform">
+                    {String(item.value).padStart(2, '0')}
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-sans uppercase tracking-wider text-[#a67c2e] font-bold mt-1">
+                    {item.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
     </section>
